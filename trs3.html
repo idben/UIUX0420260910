@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      height: 100vh;
+    }
+    .btn{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      /* width: fit-content;
+      height: fit-content; */
+      width: 100px;
+      height: 40px;
+      background-color: #1098f9;
+      color: #ffffff;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 4px;
+      user-select: none;
+      cursor: pointer;
+      font-family: sans-serif;
+      
+      overflow: hidden;
+
+      .bg{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #1a37ef;
+        transition: background-color 0.2s 0s, width 0.2s 1s;
+      }
+
+      .text{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+
+      &:hover .bg{
+        width: 100%;
+        background-color: #e905f1;
+        transition: width 0.2s 0s, background-color 0.2s 1s;
+      }
+    }
+  </style>
+  <title>transition 3: js 控制transition</title>
+</head>
+<body>
+  <div class="btn">
+    <div class="bg"></div>
+    <div class="text">按鈕 1</div>
+  </div>
+
+  <script>
+    const btn = document.querySelector(".btn");
+
+    btn.addEventListener("transitionend", (e) => {
+      console.log("動畫播放結束");
+      console.log("動畫控制的屬性: " + e.propertyName);
+      // e.target // 事件觸發的對象
+      // e.currentTarget // 事件註冊的對象
+      // console.log(e.target.parentNode); // 找上一層
+      console.log(e.target.parentNode.matches(":hover")); // 判斷是否為滑鼠移入
+      
+    });
+  </script>
+</body>
+</html>
