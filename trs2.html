@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      height: 100vh;
+    }
+    .btn{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      /* width: fit-content;
+      height: fit-content; */
+      width: 100px;
+      height: 40px;
+      background-color: #1098f9;
+      color: #ffffff;
+      text-align: center;
+      line-height: 40px;
+      border-radius: 4px;
+      user-select: none;
+      cursor: pointer;
+      font-family: sans-serif;
+      
+      overflow: hidden;
+
+      .bg{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #1a37ef;
+        transition: all 0.2s;
+      }
+
+      .text{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+
+      &:hover .bg{
+        width: 100%;
+      }
+    }
+  </style>
+  <title>transition 2: 控制子節點</title>
+</head>
+<body>
+  <div class="btn">
+    <div class="bg"></div>
+    <div class="text">按鈕 1</div>
+  </div>
+</body>
+</html>
