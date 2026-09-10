@@ -9,6 +9,12 @@
       height: 50px;
       border-radius: 50%;
       background-color: #ed8c8c;
+      &:nth-child(2){
+        background-color: #a6f604;
+      }
+      &:nth-child(3){
+        background-color: #02b4e5;
+      }
     }
     .rect{
       position: absolute;
@@ -24,18 +30,33 @@
   <title>Drag and Drop 1</title>
 </head>
 <body>
-  <div class="ball" draggable="true"></div>
+  <div class="ball" draggable="true" data-color="#ed8c8c"></div>
+  <div class="ball" draggable="true" data-color="#a6f604"></div>
+  <div class="ball" draggable="true" data-color="#02b4e5"></div>
   <div class="rect">拖到這裡來</div>
 
   <script>
-    const ball = document.querySelector(".ball");
+    const balls = document.querySelectorAll(".ball");
     const rect = document.querySelector(".rect");
+
+    balls.forEach((ball)=>{
+      ball.addEventListener("dragstart", (event) => {
+        const color =  event.target.dataset.color;
+        console.log(color);
+        event.dataTransfer.setData("text/plain", color)
+      });
+    });
+
+
 
     rect.addEventListener("dragover", (event) => {
       event.preventDefault();
     });
     rect.addEventListener("drop", (event) => {
       event.preventDefault();
+      const data = event.dataTransfer.getData("text");
+      console.log(data);
+      event.target.style.backgroundColor = data;
     });
   </script>
 </body>
